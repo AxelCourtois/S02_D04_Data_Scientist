@@ -25,7 +25,10 @@ def get_crypto_min_value(crypto_hash)
 end
 
 def display_crypto_min_value(value)
-  puts "---> La crypto ayant la plus haute valeur est #{value}"
+  crypto_name = value[0]
+  value = value[1]
+  formatted_value = sprintf("%0.8f", value)
+  puts "---> La crypto ayant la petite valeur est #{crypto_name} avec une valeur de #{formatted_value}"
 end
 
 

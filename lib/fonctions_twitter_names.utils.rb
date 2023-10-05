@@ -150,10 +150,10 @@ def count_handle_by_length(journalist_array)
 end
 
 
-def display_handle_by_length(count) 
+def display_handle_by_length(handle_hash) 
   puts "---> Je t'ai répartis tous les différents handles par nombre de caractère, voici leurs nombres : "
-  count = count.sort
-  count.each do |caract, number|
+  handle_hash = handle_hash.sort
+  handle_hash.each do |caract, number|
     if number == 1
       puts "Pour #{caract} caractères : #{number} handle "
     else

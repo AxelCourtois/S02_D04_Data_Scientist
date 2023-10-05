@@ -53,7 +53,7 @@ highest_6000 = get_highest_crypto_under_6000(crypto_6000)
      
 puts "\n"
 puts "\n"
-puts BOLD_BLACK + "J'ai d'autres questions auxquelles je peux te répondre beauté, j'ai un tableau contenant des cryptomonnaies et leurs valeurs dans ma poche..."
+puts BOLD_YELLOW + "J'ai d'autres questions auxquelles je peux te répondre beauté, j'ai un tableau contenant des cryptomonnaies et leurs valeurs dans ma poche..."
 puts "\n"
 puts "Même questionnaire, même recette, te trompe pas..." + COLOR_END
 puts "\n"
