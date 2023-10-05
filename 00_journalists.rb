@@ -1,5 +1,12 @@
 require_relative "lib/fonctions_twitter_names.utils.rb"
 
+EMOJI_CACA = "\u{1F4A9}"
+COLOR_GREEN = "\033[92m"
+COLOR_PINK = "\033[95m"
+COLOR_END = "\033[0m"
+BOLD = "\033[1m"
+BOLD_YELLOW = "\e[1;33m"
+
 
 # -------------------
 
@@ -11,15 +18,13 @@ journalist_array = ["@jcunniet","@PaulLampon","@Aziliz31","@ssoumier","@marionso
 
 
 all_handles = count_all_handles(journalist_array)
-
 #display_all_handles(all_handles)
 
 
-# ------------------------------- Compter tous les éléments ------------------------------- #
+# ------------------------------- Elément le plus petit ------------------------------- #
 
 
 shortest_handle = get_shortest_handle(journalist_array)
-
 #display_shortest_handle(shortest_handle)
 
 
@@ -28,7 +33,6 @@ shortest_handle = get_shortest_handle(journalist_array)
 
 names_six_caract = get_handles_names_six_caract(journalist_array)
 handles_six_caract = count_handles_six_caract(journalist_array)
-
 #display_handles_six_caract(names_six_caract, handles_six_caract)
 
 
@@ -36,7 +40,6 @@ handles_six_caract = count_handles_six_caract(journalist_array)
 
 
 first_capital_letter = count_first_capital_letter(journalist_array)
-
 #display_first_capital_letter(first_capital_letter)
 
 
@@ -65,5 +68,89 @@ find_him = find_epenser(journalist_array)
 
 
 handle_by_length = count_handle_by_length(journalist_array) 
-puts handle_by_length
+#display_handle_by_length(handle_by_length)
+
+
+
+puts "\n"
+puts "\n"
+puts BOLD_YELLOW + "Moi, Grand Manitou, vais t'apporter les réponses aux questions que tu te poses (mais qui sont quand même définies, désolé)"
+puts "\n"
+puts "Fais un choix avec des chiffres pour avoir la réponse (sinon t'auras une pyramide de merde)" + COLOR_END
+puts "\n"
+
+
+loop do
+  puts " ------------------------------------------------------------------------------------------------ "
+  puts COLOR_PINK + "-> 1. Combien y-a-t'il de handle dans ce tableau ?"
+  puts "-> 2. Quel est le handle le plus court de cette liste ?"
+  puts "-> 3. Combien y-a-t'il de handle contenant 5 caractères ? (excluant @)"
+  puts "-> 4. Combien de handles commencent par une majuscule ? (première lettre après @)"
+  puts "-> 5. Je vais trier la liste par ordre alphabétique pour toi"
+  puts "-> 6. Je vais trier la liste par taille de handle (des plus petits aux plus grands)"
+  puts "-> 7. Quelle est la position de @epenser dans le tableau ?"
+  puts "-> 8. Je vais te faire une répartition des handles par taille de ces derniers." + COLOR_END
+  puts "\n"
+  print "Je choisis... >>>  "
+  questionnaire = gets.chomp.to_i
+  case questionnaire
+  when 1
+    puts "\n"
+    print COLOR_GREEN
+    display_all_handles(all_handles)
+    print COLOR_END
+    puts "\n"
+  when 2
+    puts "\n"
+    print COLOR_GREEN
+    display_shortest_handle(shortest_handle)
+    print COLOR_END
+    puts "\n"
+  when 3
+    puts "\n"
+    print COLOR_GREEN
+    display_handles_six_caract(names_six_caract, handles_six_caract)
+    print COLOR_END
+    puts "\n"
+  when 4
+    puts "\n"
+    print COLOR_GREEN
+    display_first_capital_letter(first_capital_letter)
+    print COLOR_END
+    puts "\n"
+  when 5
+    puts "\n"
+    print COLOR_GREEN
+    display_sorted_by_letter_journalist_array(sorted_letter_array)
+    print COLOR_END
+    puts "\n"
+  when 6
+    puts "\n"
+    print COLOR_GREEN
+    display_sorted_by_length_journalist_array(sorted_length_array)
+    print COLOR_END
+    puts "\n"
+  when 7
+    puts "\n"
+    print COLOR_GREEN
+    display_find_epenser(find_him)
+    print COLOR_END
+    puts "\n"
+  when 8
+    puts "\n"
+    print COLOR_GREEN
+    display_handle_by_length(handle_by_length)
+    print COLOR_END
+    puts "\n"
+  
+  else 
+    puts "\n"
+    puts "           GAME OVER"
+    display_pyramide(7, "\u{1F4A9}", true) 
+    puts "\n"
+    break
+  end
+end
+
+
 

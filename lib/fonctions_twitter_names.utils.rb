@@ -9,7 +9,7 @@ end
 
 
 def display_all_handles(count)
-  puts "Dans le tableau fournis, nous avons #{count} éléments"
+  puts "---> Dans le tableau fournis, nous avons #{count} éléments"
 end
 
 
@@ -23,7 +23,7 @@ end
 
 
 def display_shortest_handle(shortest)
-  puts "L'utilisateur ayant le plus petit nom de handle est #{shortest}"
+  puts "---> L'utilisateur ayant le plus petit nom de handle est #{shortest}"
 end
 
 
@@ -59,8 +59,7 @@ end
 
 
 def display_handles_six_caract(journalist_name, journalist_count)
-  print "Nous avons #{journalist_count} éléments contenant 5 caractère (excluant @), "
-  print "les voici : "
+  print "---> Nous avons #{journalist_count} éléments contenant 5 caractère (excluant @), les voici : "
   journalist_name.each_with_index do |journalist, index|
     if journalist_name.length() == index + 1
       print journalist 
@@ -87,7 +86,7 @@ end
 
 
 def display_first_capital_letter(count)
-  puts "Voici le nombre de comptes dont la première lettre est une majuscule : #{count}"
+  puts "---> Voici le nombre de comptes dont la première lettre est une majuscule : #{count}"
 end
 
 
@@ -128,12 +127,11 @@ end
 
 
 def display_find_epenser(place)
-  puts "La personnalité de @epenser se trouver à la #{place} place"
+  puts "---> La personnalité de @epenser se trouver à la #{place} place"
 end
 
 
 # -----------------------
-
 
 
 def count_handle_by_length(journalist_array)
@@ -153,4 +151,29 @@ end
 
 
 def display_handle_by_length(count) 
+  puts "---> Je t'ai répartis tous les différents handles par nombre de caractère, voici leurs nombres : "
+  count = count.sort
+  count.each do |caract, number|
+    if number == 1
+      puts "Pour #{caract} caractères : #{number} handle "
+    else
+      puts "Pour #{caract} caractères : #{number} handles "
+    end
+  end
+end
+
+
+# -----------------------
+
+
+def display_pyramide (height_pyramide, caracter_display, is_emoji)
+  space = 1
   
+  if is_emoji == true
+    space = 2
+  end 
+  
+    height_pyramide.times do |x|
+      puts " " * (height_pyramide - x) * space + caracter_display * (x * 2 + 1)
+    end
+  end
